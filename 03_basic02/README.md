@@ -1,4 +1,4 @@
-# クラウドでのインフラ構築を始めよう
+# クラウドでのインフラ構築を始めよう: 入門編2
 
 入門編2: https://teratail.com/sakura-cloud/tutorial/3
 
