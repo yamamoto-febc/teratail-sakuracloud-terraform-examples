@@ -2,7 +2,7 @@
 
 ## 概要
 
-Teratailとさくらのクラウドのコラボキャンペーンで公開されている書くチュートリアルの構成を[Terraform for さくらのクラウド](https://github.com/yamamoto-febc/terraform-provider-sakuracloud)で構築するためのtfファイル集です。
+Teratailとさくらのクラウドのコラボキャンペーンで公開されている各チュートリアルの構成を[Terraform for さくらのクラウド](https://github.com/yamamoto-febc/terraform-provider-sakuracloud)で構築するためのtfファイル集です。
 
 Teratailキャンペーンページ  
 https://teratail.com/sakura-cloud
