@@ -19,7 +19,7 @@ git clone https://github.com/yamamoto-febc/teratail-sakuracloud-terraform-exampl
 cd teratail-sakuracloud-terraform-examples
 
 # 2) 各チュートリアルのディレクトリへ移動
-cd basic01
+cd 01_pre_basic
 
 # 3) terraformコマンド実行
 terraform apply

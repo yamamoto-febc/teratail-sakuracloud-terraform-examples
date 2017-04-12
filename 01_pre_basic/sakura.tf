@@ -1,9 +1,11 @@
 # サーバ管理者のパスワード
 variable password {
-    # terraform apply時に入力ダイアログが表示される。
+    # 以下任意の値を設定してください。
+    # コメントアウトしたままの場合、terraform apply時に入力ダイアログが表示されます。
     # default = "YOUR_PASSWORD_HERE"
 }
 
+# さくらのクラウド APIキーの設定など
 provider sakuracloud {
     # APIトークン: 環境変数SAKURACLOUD_ACCESS_TOKENを設定する、または以下の行で設定する
     # token = "YOUR_TOKEN_HERE"
@@ -20,6 +22,9 @@ data sakuracloud_archive "centos"{
     os_type = "centos"
 }
 
+#------------------------------------------------------------------------------
+# サーバー(web-server)の定義
+#------------------------------------------------------------------------------
 # ディスク(20GB/SSD)
 resource sakuracloud_disk "web-server" {
     name = "web-server"
@@ -39,6 +44,5 @@ resource sakuracloud_disk "web-server" {
 resource sakuracloud_server "web-server" {
     name = "web-server"
     disks = ["${sakuracloud_disk.web-server.id}"]
-    description = "Teratail and SakuraCloud tutorial: basic01"
     tags = ["@virtio-net-pci"]
 }
