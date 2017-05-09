@@ -46,12 +46,12 @@ resource sakuracloud_server "web-server" {
     disks = ["${sakuracloud_disk.web-server.id}"]
     tags = ["@virtio-net-pci"]
     # 追加NIC(スイッチに接続)
-    additional_interfaces = ["${sakuracloud_switch.switch.id}"]
+    additional_nics = ["${sakuracloud_switch.switch.id}"]
 
     # eth1にローカル側IPアドレスを設定(SSHプロビジョニング)
     connection {
        user = "root"
-       host = "${self.base_nw_ipaddress}"
+       host = "${self.ipaddress}"
        password = "${var.password}"
     }
     provisioner "remote-exec" {
@@ -86,11 +86,11 @@ resource sakuracloud_server "db-server" {
     disks = ["${sakuracloud_disk.db-server.id}"]
     tags = ["@virtio-net-pci"]
     # ローカル接続用のスイッチに接続
-    base_interface = "${sakuracloud_switch.switch.id}"
+    nic = "${sakuracloud_switch.switch.id}"
     # IPアドレス
-    base_nw_ipaddress = "192.168.0.2"
+    ipaddress = "192.168.0.2"
     # サブネットマスク長
-    base_nw_mask_len = 24
+    nw_mask_len = 24
 }
 
 #------------------------------------------------------------------------------

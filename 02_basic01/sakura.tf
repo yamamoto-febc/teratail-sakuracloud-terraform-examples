@@ -46,7 +46,7 @@ resource sakuracloud_server "web-server" {
     disks = ["${sakuracloud_disk.web-server.id}"]
     tags = ["@virtio-net-pci"]
     # 追加NIC(まだスイッチとは接続していない)
-    additional_interfaces = [""]
+    additional_nics = [""]
 }
 
 #------------------------------------------------------------------------------

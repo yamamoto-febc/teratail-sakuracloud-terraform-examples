@@ -22,11 +22,11 @@ resource sakuracloud_server "db01" {
     disks = ["${sakuracloud_disk.db01.id}"]
     tags = ["@virtio-net-pci"]
     # ローカル接続用のスイッチに接続
-    base_interface = "${sakuracloud_switch.switch.id}"
+    nic = "${sakuracloud_switch.switch.id}"
     # IPアドレス
-    base_nw_ipaddress = "192.168.0.100"
+    ipaddress = "192.168.0.100"
     # サブネットマスク長
-    base_nw_mask_len = 24
+    nw_mask_len = 24
     # ゲートウェイ
-    base_nw_gateway = "192.168.0.254"
+    gateway = "192.168.0.254"
 }

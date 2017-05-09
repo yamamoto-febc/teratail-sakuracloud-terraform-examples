@@ -38,12 +38,12 @@ resource "sakuracloud_server" "servers" {
     tags = ["@virtio-net-pci"]
 
     # ルータ+スイッチを接続
-    base_interface = "${sakuracloud_internet.router.switch_id}"
+    nic = "${sakuracloud_internet.router.switch_id}"
 
     # eth0のIPアドレス/ネットマスク/ゲートウェイ設定
-    base_nw_ipaddress = "${sakuracloud_internet.router.nw_ipaddresses[2 + count.index]}"
-    base_nw_mask_len = "${sakuracloud_internet.router.nw_mask_len}"
-    base_nw_gateway = "${sakuracloud_internet.router.nw_gateway}"
+    ipaddress = "${sakuracloud_internet.router.nw_ipaddresses[2 + count.index]}"
+    nw_mask_len = "${sakuracloud_internet.router.nw_mask_len}"
+    gateway = "${sakuracloud_internet.router.nw_gateway}"
 
     # パケットフィルタを接続
     packet_filter_ids = ["${sakuracloud_packet_filter.web-filter.id}"]
